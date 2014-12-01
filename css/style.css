@@ -1,0 +1,130 @@
+html, body, div, p
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body
+{
+	margin: 0 auto;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #525252;
+	background: #f1eff1;
+}
+
+.clear
+{
+	clear: both;
+}
+
+#content
+{
+	width:960px;
+	margin:0 auto;
+}
+
+#board
+{
+	width: 400px;
+	height: 480px;
+	background: #e4e2e4;
+	float: left;
+	margin: 50px 0 20px 135px;
+}
+
+.card
+{
+	perspective: 1000;
+	width: 80px;
+	height: 100px;
+	float: left;
+	margin:16px 0 0 16px;
+}
+
+#info
+{
+	width: 250px;
+	float: right;
+	margin:50px 135px 0 0;
+}
+
+#stats
+{
+	width: 210px;
+	height: 95px;
+	background: #e4e2e4;
+	padding: 20px 20px 20px 20px;
+	margin:0 auto;
+}
+
+p
+{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+span
+{
+	font-weight: bold;
+	color: #05527e;
+}
+
+.btn
+{
+	padding: 10px 16px;
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid #4cae4c;
+	border-radius: 6px;
+	color: #fff;
+	background-color: #5cb85c;
+	width: 250px;
+	margin-top: 300px;
+}
+
+/* flip the card */ .card .flip
+{
+	transform: rotateY(180deg);
+}
+
+.card, .front, .back
+{
+	width: 80px;
+	height: 100px;
+}
+
+.card .flipper
+{
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front, .back
+{
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 0px 11px #747474;
+}
+
+/* front pane, placed above back */
+.front
+{
+	background: url("../img/card_bg.gif");
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back
+{
+	transform: rotateY(180deg);
+}
