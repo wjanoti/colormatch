@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/wjanoti/colormatch/badges/gpa.svg)](https://codeclimate.com/github/wjanoti/colormatch)
+
 colormatch
 ==========
 
