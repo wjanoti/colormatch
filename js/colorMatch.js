@@ -11,7 +11,7 @@ $(document).ready(function () {
     */
 
 	function Game () {
-		this.colors = [],
+		this.colors = [];
 		this.score = 0;
 		this.cardFlipped = false;
 		this.flipCount = 0;
@@ -24,12 +24,12 @@ $(document).ready(function () {
 				that.start();
 			}
 		});
-	}
+	};
 
 	Game.prototype.shuffleCards = function () {
 		//Fisher-Yates shuffling algorithm.
 		var i = this.colors.length;
-		if (i == 0) return;
+		if (i === 0) { return; }
 		while (--i) {
 		   var j = Math.floor(Math.random() * (i + 1));
 		   var tmpI = this.colors[i];
@@ -39,7 +39,7 @@ $(document).ready(function () {
 		}
 		//duplicate the color array, so we have the pairs.
         this.colors = $.merge(this.colors, this.colors);
-	}
+	};
 
     Game.prototype.createBoard = function () {
         $("#board").children().remove();
@@ -47,12 +47,12 @@ $(document).ready(function () {
         for (var i = 0; i < this.colors.length; i++){
 			 $('#board').append("<div class='card'><div class='flipper'><div class='front'></div><div class='back'></div></div></div></div>");
         }
-    }
+    };
 
 	Game.prototype.startTimer = function () {
 		var startTime = new Date();
 		$("#time").text("00:00:00");
-		that = this;
+		var that = this;
 		this.timer = setInterval(function () {
 		    var nowTime = new Date();
 		    var timeDiff = nowTime - startTime;
@@ -66,29 +66,30 @@ $(document).ready(function () {
 		    minutes = (minutes < 10) ? "0" + minutes : minutes;
 		    seconds = (seconds < 10) ? "0" + seconds : seconds;
 			timeString = hours + ":" + minutes + ":" + seconds;
-			that.updateStats(null, null, timeString)
+			that.updateStats(null, null, timeString);
 		}, 1000);
-	}
+	};
 
 	Game.prototype.stopTimer = function () {
         if (this.timer){
             clearInterval(this.timer);
         }
-	}
+	};
 
 	Game.prototype.resetTimer = function () {
         this.stopTimer();
         $("#time").text("00:00:00");
-    }
+    };
 
 	Game.prototype.updateStats = function (score, flipCount, time) {
-		if (score != null)
+		if (score !== null) {
 			$("#score").text(score);
-		if (flipCount != null)
+		} else if (flipCount !== null) {
 			$("#flips").text(flipCount);
-		if (time != null)
+		} else if (time !== null) {
 			$("#time").text(time);
-	}
+		}
+	};
 
 	Game.prototype.start = function () {
 		this.colors = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'cyan', 'white'];
@@ -99,10 +100,10 @@ $(document).ready(function () {
 		this.updateStats(this.score, this.flipCount, null);
 		this.resetTimer();
 		//saving the context to use inside the click handler function.
-		that = this;
+		var that = this;
         $(".flipper").on("click", function () {
-            if ($(this).hasClass("flip") || that.preventClick) return;
-            if (that.flipCount == 0) {
+            if ($(this).hasClass("flip") || that.preventClick) { return; }
+            if (that.flipCount === 0) {
                 that.startTimer();
             }
             var i = $(this).closest(".card").index();
@@ -130,8 +131,7 @@ $(document).ready(function () {
                 } else {
                     // didn't make a match.
                     setTimeout(function () {
-						$turnedCards = $('.flipper.flip')
-                        $turnedCards.toggleClass('flip');
+						$('.flipper.flip').toggleClass('flip');
                         that.preventClick = false;
                     }, 2000);
                     // no negative scores.
@@ -143,7 +143,7 @@ $(document).ready(function () {
             }
            that.updateStats(that.score, that.flipCount, null);
         });
-	}
+	};
 
 	//start the game
 	var game = new Game();
