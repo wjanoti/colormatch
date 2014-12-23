@@ -1,15 +1,5 @@
 $(document).ready(function () {
 
-    /*  VARIABLES
-    *   colors -> list of colors to paint the cards.
-    *   score -> player score.
-    *   cardFlipped -> indicates if there's another card already flipped.
-    *   flipCount -> number of cards flipped in a round (stats).
-    *   preventClick -> used to prevent user from clicking on a third card.
-    *   pairsMatched -> number of pairs found by player. Used to know when the game's over.
-	*	timer -> used to keep track of the round time.
-    */
-
 	function Game () {
 		this.colors = [];
 		this.score = 0;
