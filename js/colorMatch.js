@@ -74,9 +74,11 @@ $(document).ready(function () {
 	Game.prototype.updateStats = function (score, flipCount, time) {
 		if (score !== null) {
 			$("#score").text(score);
-		} else if (flipCount !== null) {
+		} 
+		if (flipCount !== null) {
 			$("#flips").text(flipCount);
-		} else if (time !== null) {
+		}
+		if (time !== null) {
 			$("#time").text(time);
 		}
 	};
