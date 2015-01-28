@@ -2,8 +2,8 @@
 
 colormatch
 ==========
-
 Very simple color match memory game.
+![alt tag](https://raw.githubusercontent.com/wjanoti/colormatch/master/screenshot.png)
 
 How to play
 ===========
